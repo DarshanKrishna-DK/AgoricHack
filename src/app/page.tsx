@@ -105,8 +105,8 @@ const Home: React.FC = () => {
                             <input type="checkbox" checked={isDay} onChange={toggleTheme} />
                             <span className={styles.slider}></span>
                         </label>
-                        <button onClick={connectWallet}>
-                            <img src="/bb.png" alt="Wallet" style={{ width: '100px', height: '80px' }} />
+                        <button onClick={connectWallet} style={{ width: '100px', height: '80px' }} >
+                        Connect Wallet
                         </button>
                     </div>
                 </header>
@@ -128,7 +128,7 @@ const Home: React.FC = () => {
                             className={styles.input}
                         />
                         <button onClick={handleSendMessage} className={styles.sendButton}>
-                            <img src="/arrowf.png" alt="Arrow" style={{ width: '28px', height: '28px' }} />
+                            <img src="/pointer.png" alt="Arrow" style={{ width: '28px', height: '28px' }} />
                         </button>
                         <button onClick={handleSendVoice} className={styles.voiceButton}>
                             <img src="/miccc.png" alt="Microphone" style={{ width: '26px', height: '26px' }} />

@@ -1,4 +1,5 @@
 /* src/styles/index.module.css */
+
 .container {
   display: flex;
   height: 100vh;
@@ -81,6 +82,7 @@
   display: flex;
   gap: 10px; /* Space between buttons */
 }
+
 /* Toggle switch styles */
 .toggleSwitch {
   position: relative;
@@ -196,4 +198,22 @@ input:checked + .slider:before {
   border-radius: 50%; /* Circular buttons */
   border-color: #1a1a1a;
   transition: background-color 0.2s;
+}
+
+/* Styles for the Connect Wallet button */
+.connectWalletButton {
+  background-color: #4caf50; /* Green background */
+  color: white; /* White text */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px; /* Padding for the button */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  width: 100%; /* Full width for responsiveness */
+  max-width: 200px; /* Maximum width */
+}
+
+.connectWalletButton:hover {
+  background-color: #45a049; /* Darker green on hover */
 }
