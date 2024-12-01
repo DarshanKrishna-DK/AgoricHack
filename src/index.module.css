@@ -1,0 +1,199 @@
+/* src/styles/index.module.css */
+.container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background-color: white; /* Default background for day mode */
+  color: black; /* Default text color for day mode */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.day {
+  background-color: white;
+  color: black;
+}
+
+.night {
+  background-color: #464444; /* Dark background for night mode */
+  color: white; /* Light text color for night mode */
+}
+
+.sidebar {
+  width: 200px; /* Width of the sidebar */
+  background-color: #f4f4f4; /* Light background for sidebar */
+  transition: background-color 0.3s ease;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* Align items vertically */
+}
+
+.night .sidebar {
+  background-color: #353535; /* Dark background for sidebar in night mode */
+  color: white; /* Text color for sidebar in night mode */
+}
+
+.menu {
+  display: block; /* Always show menu */
+}
+
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  padding: 10px;
+  cursor: pointer;
+  color: inherit; /* Inherit color from parent (sidebar) */
+}
+
+.menu li:hover {
+  background-color: #e0e0e0; /* Hover effect for menu items in day mode */
+}
+
+/* Change hover effect for menu items in night mode */
+.night .menu li:hover {
+  background-color: #333; /* Darker hover effect in night mode */
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto; /* Enable scrolling */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 3rem; /* Make Zapp bigger */
+  font-weight: bold; /* Make Zapp bold */
+  margin: 0; /* Remove default margin */
+  font-family: monospace;
+}
+
+.controls {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+}
+/* Toggle switch styles */
+.toggleSwitch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  top: 25px; /* Adjusted to move the toggle switch up */
+  right: 30px; /* Adjusted to move the toggle switch right */
+}
+
+.toggleSwitch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc; /* Background color for toggle switch */
+  transition: 0.4s;
+  border-radius: 34px; /* Rounded corners for the switch */
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 2px; /* Adjusted to move the circle a bit left */
+  bottom: 4px; /* Adjusted to move the circle a bit down */
+  background-color: white; /* Circle color */
+  transition: 0.4s;
+  border-radius: 50%; /* Circular shape */
+}
+
+/* Change background color when checked */
+input:checked + .slider {
+  background-color: #151514; /* Color when toggle is on */
+}
+
+/* Move the circle when checked */
+input:checked + .slider:before {
+  transform: translateX(26px); /* Move the circle to the right */
+}
+
+.chatBox {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #fff; /* Background for chat box in day mode */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  height: calc(100% - 90px); /* Adjust height */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Change chatBox background in night mode */
+.night .chatBox {
+  background-color: #444; /* Dark background for chat box in night mode */
+  border: 1px solid #666; /* Darker border for night mode */
+}
+
+.chatHistory {
+  flex: 1;
+  overflow-y: auto; /* Enable scrolling for chat history */
+  margin-bottom: 10px;
+}
+
+.chatMessage {
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f0f0f0; /* Background for chat messages in day mode */
+}
+
+/* Change chatMessage background in night mode */
+.night .chatMessage {
+  background-color: #555; /* Darker background for chat messages in night mode */
+  color: white; /* Text color for chat messages in night mode */
+}
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Oval shape */
+  margin-right: 10px;
+}
+
+.night .input {
+  background-color: #555; /* Darker background for chat messages in night mode */
+  color: white; /* Text color for chat messages in night mode */
+}
+
+.sendButton,
+.voiceButton,
+.newChatButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px; /* Increase button size */
+  padding: 10px;
+  border-radius: 50%; /* Circular buttons */
+  border-color: #1a1a1a;
+  transition: background-color 0.2s;
+}
