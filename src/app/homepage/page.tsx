@@ -19,30 +19,27 @@ const Home: React.FC = () => {
   const [message, setMessage] = useState<string>("");
   const [chatHistory, setChatHistory] = useState<string[]>([]);
   const [recognition, setRecognition] = useState<SpeechRecognition | null>(null);
-  const [historyIndex, setHistoryIndex] = useState<number>(-1); // Track the index of the chat history
+  const [historyIndex, setHistoryIndex] = useState<number>(-1);
+  const [walletConnected, setWalletConnected] = useState<boolean>(false); // State to manage wallet connection
 
   useEffect(() => {
     async function init() {
-      // Initialize web-3
       if ((window as any).ethereum) {
         const web3Instance = new Web3((window as any).ethereum);
         setWeb3(web3Instance);
-        await (window as any).ethereum.request({
-          method: "eth_requestAccounts",
-        });
         const accounts = await web3Instance.eth.getAccounts();
-        setConnectedAccount(accounts[0]);
-
-        // Get the nonce
-        const nonceValue = await web3Instance.eth.getTransactionCount(accounts[0]);
-        setNonce(nonceValue);
+        if (accounts.length > 0) {
+          setConnectedAccount(accounts[0]);
+          setWalletConnected(true); // Set wallet connected state
+          const nonceValue = await web3Instance.eth.getTransactionCount(accounts[0]);
+          setNonce(nonceValue);
+        }
       } else {
         alert("Please install MetaMask");
       }
     }
     init();
 
-    // Initialize speech recognition
     const SpeechRecognition = window.SpeechRecognition || (window as any).webkitSpeechRecognition;
     if (SpeechRecognition) {
       const recognitionInstance = new SpeechRecognition();
@@ -72,17 +69,17 @@ const Home: React.FC = () => {
   const connectWallet = async () => {
     if (web3 && (window as any).ethereum) {
       try {
-        await (window as any).ethereum.request({
-          method: "eth_requestAccounts",
-        });
         const accounts = await web3.eth.getAccounts();
-        setConnectedAccount(accounts[0]);
-
-        // Get the nonce
-        const nonceValue = await web3.eth.getTransactionCount(accounts[0]);
-        setNonce(nonceValue);
-
-        console.log(`Wallet Address: ${accounts[0]}`);
+        if (accounts.length === 0) {
+          // Show alert if no account is connected
+          alert("Please connect to MetaMask.");
+        } else {
+          setConnectedAccount(accounts[0]);
+          setWalletConnected(true); // Set wallet connected state
+          const nonceValue = await web3.eth.getTransactionCount(accounts[0]);
+          setNonce(nonceValue);
+          console.log(`Wallet Address: ${accounts[0]}`);
+        }
       } catch (error) {
         console.error("Error connecting to MetaMask:", error);
       }
@@ -138,14 +135,16 @@ const Home: React.FC = () => {
               <input type="checkbox" checked={isDay} onChange={toggleTheme} />
               <span className={styles.slider}></span>
             </label>
-            <button
-              onClick={connectWallet}
-              className={styles.connectWalletButton} // Use the new button class
-            >
-              Connect Wallet
-            </button>
+            {!walletConnected ? ( // Conditionally render the button based on wallet connection
+              <button
+                onClick={connectWallet}
+                className={styles.connectWalletButton}
+              >
+                Connect Wallet
+              </button>
+            ) : null}
             {connectedAccount && (
-              <p>Connected Account: {connectedAccount.slice(0, 14)}...</p> // Display the connected account
+              <p>Connected Account: {connectedAccount.slice(0, 14)}...</p>
             )}
           </div>
         </header>
@@ -188,4 +187,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default Home; 
