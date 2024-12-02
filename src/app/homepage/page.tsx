@@ -135,7 +135,7 @@ const Home: React.FC = () => {
 
   return (
     <div className={`${styles.container} ${isDay ? styles.day : styles.night}`}>
-      <div className={styles.sidebar}>
+      {/* <div className={styles.sidebar}>
         <div className={styles.menu}>
           <ul>
             <li>Home</li>
@@ -144,10 +144,10 @@ const Home: React.FC = () => {
             <li>Help</li>
           </ul>
         </div>
-      </div>
+      </div> */}
       <div className={styles.content}>
         <header className={styles.header}>
-          <h1>Zapp:) </h1>
+          <h1>Zapp BOT:) </h1>
           <div className={styles.controls}>
             <label className={styles.toggleSwitch}>
               <input type="checkbox" checked={isDay} onChange={toggleTheme} />

@@ -44,8 +44,6 @@
   margin-left: 40px;
   font-family: monospace;
   font-size: xx-large;
-  
-
 }
 
 .menu li {
@@ -66,8 +64,7 @@
 .content {
   flex: 1;
   padding: 20px;
-  overflow-y: auto; /* Enable scrolling */
- 
+  overflow: hidden; /* Hide scrollbar for content */
 }
 
 .header {
@@ -130,6 +127,7 @@
 }
 
 /* Change background color when checked */
+/* Change background color when checked */
 input:checked + .slider {
   background-color: #151514; /* Color when toggle is on */
 }
@@ -158,8 +156,19 @@ input:checked + .slider:before {
 
 .chatHistory {
   flex: 1;
-  overflow-y: auto; /* Enable scrolling for chat history */
+  overflow-y: hidden; /* Hide vertical scrollbar */
   margin-bottom: 10px;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.chatHistory::-webkit-scrollbar {
+  display: none; /* Hide the scrollbar */
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+.chatHistory {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .chatMessage {
@@ -194,12 +203,22 @@ input:checked + .slider:before {
 }
 
 .sendButton,
-.voiceButton,
-.newChatButton {
+.voiceButton {
   background: none;
   border: none;
   cursor: pointer;
   font-size: 24px; /* Increase button size */
+  padding: 10px;
+  border-radius: 50%; /* Circular buttons */
+  border-color: #1a1a1a;
+  transition: background-color 0.2s;
+}
+
+.newChatButton{
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 50px; /* Increase button size */
   padding: 10px;
   border-radius: 50%; /* Circular buttons */
   border-color: #1a1a1a;

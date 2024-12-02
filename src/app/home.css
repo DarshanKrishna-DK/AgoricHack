@@ -1,0 +1,246 @@
+body {
+  margin: 0;
+  font-family: "Raleway", sans-serif; /* Ensure Raleway is applied */
+  overflow-y: scroll;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+/* Light mode styles */
+body.light {
+  background-color: #fff;
+  color: #000;
+}
+
+.navbar.light {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Dark mode styles */
+body.dark {
+  background-color: #000;
+  color: #fff;
+}
+
+.navbar.dark {
+  background-color: #1a1a1a;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem; /* Existing padding */
+  margin-top: 1rem; /* Space above the navbar */
+}
+
+/* Navigation links */
+.navbar a {
+  color: #000; /* Default color for light mode */
+  transition: color 0.3s;
+}
+
+.navbar.light a {
+  color: #000; /* Light mode link color */
+}
+
+.navbar.dark a {
+  color: #fff; /* Dark mode link color */
+}
+
+.menu li:hover {
+  color: #ff6347; /* Hover effect */
+}
+
+.search-container {
+  display: flex;
+}
+
+.search-container input {
+  padding: 0.5rem;
+}
+
+.search-button {
+  padding: 0.5rem;
+}
+
+.theme-toggle,
+.get-started {
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+/* Section styles */
+.section {
+  padding: 4rem 2rem; /* More space between sections */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slide-in 0.5s forwards; /* Animation on load */
+}
+
+/* Home section specific styles */
+.home h1 {
+  font-size: 3rem; /* Increase font size for the heading */
+  font-weight: bolder; /* Make the heading bold */
+  text-align: left; /* Align the heading to the left */
+  margin-bottom: 1rem; /* Space below the heading */
+}
+
+.home p {
+  font-size: 1.5rem; /* Normal size for the content */
+  text-align: left; /* Align the content to the left */
+  margin-bottom: 1rem; /* Add 1rem space after each paragraph */
+}
+
+/* About and Services section styles */
+.about h1,
+.services h1 {
+  font-size: 2rem; /* Adjust heading size for about and services */
+  font-weight: bold; /* Make the heading bold */
+  text-align: left; /* Align the heading to the left */
+  margin-bottom: 1rem; /* Space below the heading */
+}
+
+.about h2,
+.services h2 {
+  font-size: 1.5rem; /* Adjust heading size for about and services */
+  font-weight: bold; /* Make the heading bold */
+  text-align: left; /* Align the heading to the left */
+  margin-bottom: 1rem; /* Space below the heading */
+}
+
+.about h3,
+.services h3 {
+  font-size: 1rem; /* Adjust heading size for about and services */
+  font-weight: bolder; /* Make the heading bold */
+  text-align: left; /* Align the heading to the left */
+  margin-bottom: 1rem; /* Space below the heading */
+}
+
+.about p,
+.services ul {
+  font-size: 1.5rem; /* Normal size for the content */
+  text-align: left; /* Align the content to the left */
+  margin-bottom: 1rem; /* Add 1rem space after each paragraph */
+}
+
+/* Footer styles */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #1a1a1a; /* Footer background */
+  color: #fff; /* Footer text color */
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+
+/* Slide-in animation */
+@keyframes slide-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Add styles for smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+.section-separator {
+  border-top: 2px solid #ffffff; /* Change color and thickness as needed */
+  margin: 2rem 0; /* Space above and below the separator */
+}
+.contact p {
+  font-size: 1rem; /* Adjust font size if needed */
+  margin-bottom: 1rem; /* Space below each contact item */
+}
+.contact h2 {
+  font-size: 2rem; /* Adjust font size if needed */
+  margin-bottom: 1rem; /* Space below each contact item */
+}
+/* home.css */
+
+.flex-container {
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: space-between; /* Space between text and image */
+  padding: 20px; /* Add some padding */
+}
+
+.text-content {
+  flex: 1; /* Allow the text to take up available space */
+  margin-right: 20px; /* Space between text and image */
+}
+
+.image-content {
+  flex: 1; /* Allow the image to take up available space */
+}
+
+/* home.css */
+
+.flex-container {
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: space-between; /* Space between text and image */
+  padding: 20px; /* Add some padding */
+}
+
+.text-content {
+  flex: 1; /* Allow the text to take up available space */
+  margin-right: 20px; /* Space between text and image */
+}
+
+.image-content {
+  flex: 1; /* Allow the image to take up available space */
+}
+
+.home-image {
+  width: 100%; /* Set the width to 100% of its container */
+  max-width: 600px; /* Set a maximum width for the image */
+  height: auto; /* Maintain aspect ratio */
+}
+.service-image {
+  width: 100%; /* Set the width to 100% of its container */
+  max-width: 600px; /* Set a maximum width for the image */
+  height: auto; /* Maintain aspect ratio */
+}
+/* home.css */
+
+.flex-container {
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: space-between; /* Space between text and image */
+  padding: 20px; /* Add some padding */
+}
+
+.text-content {
+  flex: 1; /* Allow the text to take up available space */
+  margin-right: 20px; /* Space between text and image */
+}
+
+.image-content {
+  flex: 1; /* Allow the image to take up available space */
+}
+
+.service-image {
+  width: 100%; /* Set the width to 100% of its container */
+  max-width: 600px; /* Set a maximum width for the image */
+  height: auto; /* Maintain aspect ratio */
+}
