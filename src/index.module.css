@@ -226,17 +226,22 @@ input:checked + .slider:before {
 }
 
 /* Styles for the Connect Wallet button */
+/* index.module.css */
+
+/* Add this CSS for the peach button */
 .connectWalletButton {
-  background-color: #4caf50; /* Green background */
-  color: white; /* White text */
-  border: none; /* No border */
-  border-radius: 5px; /* Rounded corners */
-  padding: 10px 20px; /* Padding for the button */
-  font-size: 16px; /* Font size */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-  width: 100%; /* Full width for responsiveness */
-  max-width: 200px; /* Maximum width */
+  background-color: #ffccbc; /* Peach color */
+
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  border: purple;
+}
+
+.connectWalletButton:hover {
+  background-color: #ffab91; /* Darker peach on hover */
 }
 
 .connectWalletButton:hover {

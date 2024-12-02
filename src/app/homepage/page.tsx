@@ -18,14 +18,12 @@ const Home: React.FC = () => {
   const [isDay, setIsDay] = useState<boolean>(true);
   const [message, setMessage] = useState<string>("");
   const [chatHistory, setChatHistory] = useState<string[]>([]);
-  const [recognition, setRecognition] = useState<SpeechRecognition | null>(
-    null
-  );
+  const [recognition, setRecognition] = useState<SpeechRecognition | null>(null);
   const [historyIndex, setHistoryIndex] = useState<number>(-1); // Track the index of the chat history
 
   useEffect(() => {
     async function init() {
-      // initialize web-3
+      // Initialize web-3
       if ((window as any).ethereum) {
         const web3Instance = new Web3((window as any).ethereum);
         setWeb3(web3Instance);
@@ -36,9 +34,7 @@ const Home: React.FC = () => {
         setConnectedAccount(accounts[0]);
 
         // Get the nonce
-        const nonceValue = await web3Instance.eth.getTransactionCount(
-          accounts[0]
-        );
+        const nonceValue = await web3Instance.eth.getTransactionCount(accounts[0]);
         setNonce(nonceValue);
       } else {
         alert("Please install MetaMask");
@@ -46,9 +42,8 @@ const Home: React.FC = () => {
     }
     init();
 
-    // initialize speech recognition
-    const SpeechRecognition =
-      window.SpeechRecognition || (window as any).webkitSpeechRecognition;
+    // Initialize speech recognition
+    const SpeechRecognition = window.SpeechRecognition || (window as any).webkitSpeechRecognition;
     if (SpeechRecognition) {
       const recognitionInstance = new SpeechRecognition();
       recognitionInstance.continuous = false;
@@ -87,7 +82,7 @@ const Home: React.FC = () => {
         const nonceValue = await web3.eth.getTransactionCount(accounts[0]);
         setNonce(nonceValue);
 
-        console.log(`Wallet Address : ${connectedAccount}`);
+        console.log(`Wallet Address: ${accounts[0]}`);
       } catch (error) {
         console.error("Error connecting to MetaMask:", error);
       }
@@ -135,16 +130,6 @@ const Home: React.FC = () => {
 
   return (
     <div className={`${styles.container} ${isDay ? styles.day : styles.night}`}>
-      {/* <div className={styles.sidebar}>
-        <div className={styles.menu}>
-          <ul>
-            <li>Home</li>
-            <li>Settings</li>
-            <li>Profile</li>
-            <li>Help</li>
-          </ul>
-        </div>
-      </div> */}
       <div className={styles.content}>
         <header className={styles.header}>
           <h1>Zapp BOT:) </h1>
@@ -155,10 +140,13 @@ const Home: React.FC = () => {
             </label>
             <button
               onClick={connectWallet}
-              style={{ width: "100px", height: "80px" }}
+              className={styles.connectWalletButton} // Use the new button class
             >
               Connect Wallet
             </button>
+            {connectedAccount && (
+              <p>Connected Account: {connectedAccount.slice(0, 14)}...</p> // Display the connected account
+            )}
           </div>
         </header>
         <div className={styles.chatBox}>
