@@ -1,3 +1,11 @@
+<h1 align="center">AgoricHack / ZaPP</h1>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-2563EB?style=for-the-badge" alt="Next.js" />
+  <img src="https://img.shields.io/badge/TypeScript-7C3AED?style=for-the-badge" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Prototype-0891B2?style=for-the-badge" alt="Prototype" />
+</p>
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
